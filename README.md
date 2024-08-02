@@ -9,8 +9,6 @@
 <img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/ikhode-arena/MIS-Java-Intellij">
 
 
-
-
 </div>
 
 ## 🎯TODO
