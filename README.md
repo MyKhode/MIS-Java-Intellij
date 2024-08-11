@@ -1,45 +1,50 @@
+
+
 <div align="center">
 
-# 🏅STUDENT-MIS USING JAVA INTELLIJ🏅
-
-[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
-<img alt="GitHub forks" src="https://img.shields.io/github/forks/ikhode-arena/MIS-Java-Intellij">
+# 🏅 Student Management Information System (MIS) with Java and IntelliJ 🏅
 <img alt="GitHub License" src="https://img.shields.io/github/license/ikhode-arena/MIS-Java-Intellij">
+<img alt="GitHub forks" src="https://img.shields.io/github/forks/ikhode-arena/MIS-Java-Intellij">
 <img alt="GitHub Release" src="https://img.shields.io/github/v/release/ikhode-arena/mis-java-intellij">
 <img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/ikhode-arena/MIS-Java-Intellij">
 
-
-
 </div>
 
-## 🎯TODO
+## 🎯 Project Overview
 
-- [X] GUI Swing with java intellij
-- [X] Read or Query Data from Mysql 
-- [X] Delete Data via Id with mysql db
-- [X] Update Data via id
-- [X] Reset fill form btn
-- [X] Display Query data as JTable
-- [ ] Handle error try catch ...
+This project focuses on developing a Student Management Information System (MIS) using Java with the IntelliJ IDE. The system uses a MySQL database to handle CRUD operations (Create, Read, Update, Delete) for managing student data. It also features a user-friendly GUI developed using Java Swing.
 
-## 💪Installation
+### Key Features
 
-```bash
-download connector j 
-```
-```bash
-import into intellij project structure 
-```
-```bash
-import mysql db via scripting
-```
-```bash
-run the project via intellij gui btn
-```
+- **Java Swing GUI**: A graphical user interface designed using Java Swing within IntelliJ.
+- **MySQL Integration**: Connects to a MySQL database to handle student data.
+- **LGoodDatePicker Integration**: Implements LGoodDatePicker to enhance date selection in the GUI.
+- **CRUD Operations**: Enables users to perform Create, Read, Update, and Delete operations on student records.
+- **Error Handling**: Implements error handling with try-catch blocks to ensure smooth operation.
 
-## 🏹 Mysql Scripting
+## 💪 Installation Guide
 
-```
+Follow these steps to set up and run the project:
+
+1. **Download MySQL Connector/J**:
+   - Ensure that you have the MySQL Connector/J library for Java.
+2. **Download LGoodDatePicker**:
+   - Include the LGoodDatePicker library in your project dependencies for advanced date handling.
+
+3. **Import into IntelliJ**:
+   - Import the project into IntelliJ by setting up the project structure and adding necessary dependencies.
+
+4. **MySQL Database Setup**:
+   - Import the provided MySQL database script into your MySQL server.
+
+5. **Run the Project**:
+   - Execute the project via the IntelliJ GUI.
+
+## 🏹 MySQL Scripting
+
+The following script creates the necessary database and tables for the Student Management Information System:
+
+```sql
 -- phpMyAdmin SQL Dump
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
@@ -53,42 +58,21 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
 -- Database: `java_activity_1`
---
 
--- --------------------------------------------------------
-
---
 -- Table structure for table `gender`
---
-
 CREATE TABLE `gender` (
   `id` int(11) NOT NULL,
   `gender_name` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `gender`
---
-
+-- Insert data into `gender`
 INSERT INTO `gender` (`id`, `gender_name`) VALUES
 (1, 'Male'),
 (2, 'Female'),
 (3, 'Other');
 
--- --------------------------------------------------------
-
---
 -- Table structure for table `student`
---
-
 CREATE TABLE `student` (
   `id` int(11) NOT NULL,
   `name_latin` varchar(200) NOT NULL,
@@ -97,62 +81,30 @@ CREATE TABLE `student` (
   `date_of_birth` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `student`
---
-
+-- Insert data into `student`
 INSERT INTO `student` (`id`, `name_latin`, `name_khmer`, `gender_id`, `date_of_birth`) VALUES
-(2, 'Jane Smith', '??? ?????', 2, '2001-02-20'),
-(3, 'Alex Kim', '????? ???', 3, '1999-05-30'),
-(4, 'test', 'តេស', 1, '2024-08-08');
+(2, 'Jane Smith', 'ជាន ស្មិច', 2, '2001-02-20'),
+(3, 'Alex Kim', 'អាលិច គីម', 3, '1999-05-30'),
+(4, 'Test User', 'តេស', 1, '2024-08-08');
 
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `gender`
---
+-- Indexes and constraints
 ALTER TABLE `gender`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `student`
---
 ALTER TABLE `student`
   ADD PRIMARY KEY (`id`),
   ADD KEY `gender_id` (`gender_id`);
 
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `gender`
---
 ALTER TABLE `gender`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
---
--- AUTO_INCREMENT for table `student`
---
 ALTER TABLE `student`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `student`
---
 ALTER TABLE `student`
   ADD CONSTRAINT `student_ibfk_1` FOREIGN KEY (`gender_id`) REFERENCES `gender` (`id`);
-COMMIT;
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+COMMIT;
 ```
 
 ## 🔯 Demo
@@ -163,15 +115,20 @@ COMMIT;
 ### ✍️ Citation
 
 ```bibtex
-@misc{java + intellij,
+@misc{java_intellij_mis,
   author = {SOY TET},
-  title = {Student Management Information System },
+  title = {Student Management Information System (MIS) with Java and IntelliJ},
   year = {2024},
   publisher = {GitHub},
   journal = {GitHub repository}
 }
+
 ```
-#### Used in:
+
 ---
 ### 👨‍🎓 References
+- [Java Swing Documentation](https://docs.oracle.com/javase/tutorial/uiswing/)
+- [MySQL Connector/J Documentation](https://dev.mysql.com/downloads/connector/j/)
+- [IntelliJ IDEA Documentation](https://www.jetbrains.com/idea/resources/)
+- [LGoodDatePicker Date Time Select Library](https://github.com/LGoodDatePicker/LGoodDatePicker)
 ---
